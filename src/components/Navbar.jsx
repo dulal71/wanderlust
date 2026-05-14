@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 const Navbar = () => {
      const { data: session,  } = authClient.useSession() 
     const user = session?.user
-     console.log(user);
+   
     
     return (
         <nav className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-white/80  backdrop-blur-md shadow-sm border border-white/10 flex justify-between items-center px-10 py-3 h-20">
@@ -20,7 +20,7 @@ const Navbar = () => {
          <Link href='/'>Home</Link>  
          <Link href='/destinations'>Destinations</Link> 
          <Link href='/add-destinations'>Add-Destinations</Link>   
-         <Link href='/myBookings'>My Bookings</Link>   
+         <Link href='/my-booking'>My Bookings</Link>   
          <Link href='/admin'>Admin</Link>   
             </ul>   
             

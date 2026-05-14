@@ -25,6 +25,7 @@ const BookingCard = ({destination}) => {
              imageUrl,
              _id
             }
+            
  console.log(bookingData);
 const res =   await addBookingData(bookingData)
 console.log(res);

@@ -1,6 +1,6 @@
 'use server'
 
-import { revalidatePath } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
 
@@ -51,3 +51,18 @@ console.log(bookingData);
 
   return data;
 }
+
+
+export const deleteBooking = async (id) => {
+  const res = await fetch(`http://localhost:5000/booking/${id}`, {
+    method: "DELETE",
+  });
+
+  const data = await res.json();
+   console.log(data);
+   if(data.deletedCount > 0){
+    revalidateTag('my-booking')
+   }
+return data;
+ 
+};
