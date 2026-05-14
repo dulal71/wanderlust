@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Check, Delete, MapPin, PencilToLine } from "@gra
 import { Calendar } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import BookingCard from "../../../components/BookingCard";
 
 
 const DestinationDetails =async ({params}) => {
@@ -62,32 +63,8 @@ const DestinationDetails =async ({params}) => {
 </div>
 
 </div>
-
-<div className="bg-white shadow py-4 px-10 space-y-3">
-<div>
-<p className="text-zinc-500">Staring from</p>
-<p className="text-3xl text-sky-500">${price}</p>
-<p>/per person</p>
+<BookingCard destination={destination}></BookingCard>
 </div>
-<div className="bg-zinc-200 px-2 py-1">
-<p>{departureDate}</p>
-</div>
-<div>
-    <div className="flex bg-sky-500 w-full  items-center justify-center rounded-md">
-<button className=" flex items-center gap-2 py-1 text-white">Book Now <ArrowRight></ArrowRight></button>
-    </div>
-
-<ul className="space-y-2 mt-3">
-    <li ><p className="flex items-center gap-2"><Check color="green"></Check>Free cancellation up to 7 days</p></li>
-    <li><p className="flex items-center gap-2"><Check color="green"></Check>Travel insurance included</p></li>
-    <li><p className="flex items-center gap-2"><Check color="green"></Check>24/7 customer support</p></li>
-</ul>
-</div>
-</div>
-
-
-
-         </div>
         </div>
     );
 };
