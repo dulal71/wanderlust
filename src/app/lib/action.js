@@ -1,15 +1,23 @@
 'use server'
 
+import { auth } from "@/lib/auth";
 import { revalidatePath} from "next/cache"
+import { headers } from "next/headers";
 
 
 
 
 export const PostData = async(destinations)=>{
-const res = await fetch('http://localhost:5000/destinations',{
+const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    console.log(token);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destinations`,{
    method:"POST" ,
    headers:{
-    'Content-type': 'application/json'
+    'Content-type': 'application/json',
+     authorization:`Bearer ${token}`
+
    },
    body:JSON.stringify(destinations)
 })
@@ -22,10 +30,16 @@ return data
 export const updateData = async (formData, id) => {
   const update = Object.fromEntries(formData.entries());
 console.log(update);
-  const res = await fetch(`http://localhost:5000/destinations/${id}`, {
+const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    console.log(token);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/destinations/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+       authorization:`Bearer ${token}`
+
     },
     body: JSON.stringify(update),
   });
@@ -39,10 +53,16 @@ console.log(update);
 
 export const addBookingData = async(bookingData)=>{
 console.log(bookingData);
-  const res= await fetch('http://localhost:5000/booking',{
+const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    console.log(token);
+  const res= await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking`,{
   method:"POST",
   headers:{
-    "Content-type":"application/json"
+    "Content-type":"application/json",
+     authorization:`Bearer ${token}`
+
   },
   body:JSON.stringify(bookingData)
 })
@@ -55,8 +75,15 @@ console.log(bookingData);
 
 export const deleteBooking = async (id) => {
   console.log("id:",id);
-  const res = await fetch(`http://localhost:5000/booking/${id}`, {
+  const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    console.log(token);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booking/${id}`, {
     method: "DELETE",
+    headers:{
+      authorization:`Bearer ${token}` 
+    }
   });
 
   const data = await res.json();

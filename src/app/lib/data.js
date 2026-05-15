@@ -1,19 +1,43 @@
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+
+
+
+
 export const getData = async()=>{
-    const res = await fetch('http://localhost:5000/destinations')
+    const res = await fetch('http://localhost:5000/destinations',{
+     
+    })
     const data = await res.json()
     return data;
 }
 
 export const getDataById = async(id)=>{
     console.log(id);
-const res = await fetch(`http://localhost:5000/destinations/${id}`)
+const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    console.log(token); 
+const res = await fetch(`http://localhost:5000/destinations/${id}`,{
+headers:{
+    authorization:`Bearer ${token}`
+}
+})
 const data = await res.json()
 return data
 }
 
 export const getBookingData = async(userId)=>{
     console.log(userId);
- const res = await fetch(`http://localhost:5000/booking/${userId}`)   
+    const {token} = await auth.api.getToken({
+        headers:await headers()
+    })
+    console.log(token); 
+ const res = await fetch(`http://localhost:5000/booking/${userId}`,{
+  headers:{
+    authorization:`Bearer ${token}`
+}  
+ })   
 const data = await res.json()
 console.log(data);
 return data

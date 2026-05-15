@@ -1,6 +1,7 @@
 'use client'
 
 import { deleteBooking } from "@/app/lib/action";
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 
 const BookingDestination = ({booking}) => {
@@ -11,6 +12,8 @@ departure,price,country,_id
 
 
 const handleDelete = async()=>{
+    const {data:tokenData}=await authClient.token()
+    console.log(tokenData);
     try{
         console.log(_id);
 const res = await deleteBooking(_id)
