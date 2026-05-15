@@ -4,15 +4,22 @@ import { deleteBooking } from "@/app/lib/action";
 import Image from "next/image";
 
 const BookingDestination = ({booking}) => {
-   console.log(booking);
+
     const {imageUrl,
 departure,price,country,_id
-
 }=booking
-console.log(_id);
+
+
 const handleDelete = async()=>{
+    try{
+        console.log(_id);
 const res = await deleteBooking(_id)
 console.log(res);
+    }catch(error){
+     console.log(error);   
+    }
+
+
 }
     return (
         <div className="flex items-center justify-between my-4 p-4 shadow">

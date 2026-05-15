@@ -29,7 +29,7 @@ const BookingCard = ({destination}) => {
  console.log(bookingData);
 const res =   await addBookingData(bookingData)
 console.log(res);
-if(res.insertedId){
+if(res.success===true){
 toast.success(`${destinationName} booking successfully`)
 }else{
     toast.error("Already added booking")
