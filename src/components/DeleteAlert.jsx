@@ -23,7 +23,7 @@ const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}destinations/${_id
  const data = await res.json()
  console.log(data);
  if(data.deletedCount >0){
- toast.success("Delete successfully") 
+ toast.success(`Delete ${destinationName} successfully`) 
 redirect('/destinations')
  }
 
