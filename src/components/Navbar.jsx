@@ -13,14 +13,13 @@ const Navbar = () => {
    
     
     return (
-        <nav className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-white/80  backdrop-blur-md shadow-sm border border-white/10 flex justify-between items-center px-10 py-3 h-20">
+        <nav className="max-w-7xl mx-auto fixed top-0 left-0 right-0 bottom-0 z-50 bg-white/80  backdrop-blur-md shadow-sm border border-white/10 flex justify-between items-center px-10 py-3 h-20 rounded-2xl">
             {/* left-content */}
          <div>
          <ul className="flex gap-6 text-xl">
          <Link href='/'>Home</Link>  
          <Link href='/destinations'>Destinations</Link> 
-         <Link href='/add-destinations'>Add-Destinations</Link>   
-         <Link href='/my-booking'>My Bookings</Link>   
+  <Link href='/my-booking'>My Bookings</Link>   
          <Link href='/admin'>Admin</Link>   
             </ul>   
             
@@ -41,8 +40,8 @@ const Navbar = () => {
       </Avatar>  
        <Link href='/profile' className="px-3 bg-blue-800 text-white rounded-full">Profile</Link></div> :
     <ul className="flex gap-6 items-center text-xl font-semibold">
-    <li><Link href='/login'>Login</Link></li>
-      <li><Link href='/signUp'>Sign Up</Link></li>  
+    <li><Link href='/login' className="bg-black text-white px-2 py-1 rounded-2xl shadow-md">Login</Link></li>
+  
 </ul>
  } 
    
