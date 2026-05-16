@@ -11,6 +11,12 @@ export const getData = async()=>{
     const data = await res.json()
     return data;
 }
+export const getFeaturesData = async()=>{
+    const res = await fetch(`http://localhost:5000/featured`)
+    const data = await res.json()
+    console.log(data);
+    return data;
+}
 
 export const getDataById = async(id)=>{
     console.log(id);

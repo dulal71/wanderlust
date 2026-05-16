@@ -12,8 +12,7 @@ departure,price,country,_id
 
 
 const handleDelete = async()=>{
-    const {data:tokenData}=await authClient.token()
-    console.log(tokenData);
+  
     try{
         console.log(_id);
 const res = await deleteBooking(_id)
