@@ -58,7 +58,7 @@ toast.success(`${destinationName} booking successfully`)
        <ul className="space-y-2 mt-3">
            <li ><p className="flex items-center gap-2"><Check color="green"></Check>Free cancellation up to 7 days</p></li>
            <li><p className="flex items-center gap-2"><Check color="green"></Check>Travel insurance included</p></li>
-           <li><p className="flex items-center gap-2"><Check color="green"></Check>24/7 customer support</p></li>
+           <li><p className="flex items-center gap-2"><Check color="green"></Check>24/7 customer support etc</p></li>
        </ul>
        </div>
        </div>
